@@ -1,3 +1,8 @@
+import 'package:donut_app/tab/burger_tab.dart';
+import 'package:donut_app/tab/donut_tab.dart';
+import 'package:donut_app/tab/pancakes_tab.dart';
+import 'package:donut_app/tab/pizza_tab.dart';
+import 'package:donut_app/tab/smoothie_tab.dart';
 import 'package:donut_app/util/my_tab.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Widget> myTabs =const [
+  List<Widget> myTabs = const [
     MyTab(iconPath: 'lib/icons/donut.png'),
     MyTab(iconPath: 'lib/icons/burger.png'),
     MyTab(iconPath: 'lib/icons/smoothie.png'),
@@ -60,8 +65,18 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(height: 24),
-            TabBar(tabs: myTabs,
-            indicatorColor: Colors.pink,),
+            TabBar(tabs: myTabs, indicatorColor: Colors.pink),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  DonutTab(),
+                  BurgerTab(),
+                  SmoothieTab(),
+                  PancakesTab(),
+                  PizzaTab(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
